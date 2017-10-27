@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hue Tube</title>
+	<link rel="stylesheet" href="styles.css">
+  <style>
+
+    :root {
+      --hue-slider: rgb(191, 63, 63);
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      background-color: var(--hue-slider);
+    }
+    input[type=range]::-moz-range-thumb {
+      background-color: var(--hue-slider);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="hue-tube">
+
+    <header class="main-header">
+      <div class="logo">
+        <img src="img/logo-color.svg" alt="">
+      </div>
+    </header>
+
+    <div class="controls">
+
+      <div class="controls__top">
+        <input class="hue-slider" name="hue-slider" type="range" value="0" min="0" max="360">
+      </div>
+
+      <div class="controls__btm">
+        <button class="play"><img src="img/play.svg" alt=""></button>
+        <!-- <button class="full-screen">Full</button> -->
+      </div>
+
+    </div>
+
+    <div class="hue"></div>
+
+    <div class="hue-images">
+      <img class="hue-image" src="img/hughs/hugh_01.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_02.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_03.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_04.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_05.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_06.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_07.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_08.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_09.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_10.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_11.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_12.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_13.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_14.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_15.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_16.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_17.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_18.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_19.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_20.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_21.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_22.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_23.jpg" alt="">
+      <img class="hue-image" src="img/hughs/hugh_24.png" alt="">
+    </div>
+
+  </div>
+
+	<script src="_build/bundle.js"></script>
+</body>
+</html>

@@ -6,6 +6,8 @@ const playBtn = document.querySelector('.play');
 const playIcon = playBtn.querySelector('img');
 const body = document.querySelector('body');
 
+
+console.log('hello');
 /*
   Doc Ready
 */

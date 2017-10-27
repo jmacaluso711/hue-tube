@@ -4,6 +4,17 @@ const images = document.querySelectorAll('.hue-image');
 const hueOverlay = document.querySelector('.hue');
 const playBtn = document.querySelector('.play');
 const playIcon = playBtn.querySelector('img');
+const body = document.querySelector('body');
+
+/*
+  Doc Ready
+*/
+
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(() => {
+    body.classList.remove('loading');
+  }, 600)
+});
 
 /*
   Hue Image Slider

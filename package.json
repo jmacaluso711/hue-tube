@@ -4,7 +4,8 @@
   "description": "Hue",
   "main": "index.js",
   "scripts": {
-    "start": "browser-sync start --server --files '*.js, *.html, *.css' --no-ui --port 4000"
+    "start": "browser-sync start --server --files '*.js, *.html, *.css' --no-ui --port 4000",
+    "build": "webpack"
   },
   "author": "Wonkteam",
   "license": "ISC",

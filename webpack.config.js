@@ -4,10 +4,10 @@ const nodeEnv = process.env.NODE_ENV || 'production';
 module.exports = {
   devtool: 'source-map',
   entry: {
-    filename: './index.js'
+    filename: './js/index.js'
   },
   output: {
-    filename: '_build/bundle.js'
+    filename: './_build/bundle.js'
   },
   module: {
     loaders: [
@@ -16,7 +16,9 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015-native-modules']
+          presets: [
+            ["es2015", { "modules": false }]
+          ]
         }
       }
     ]

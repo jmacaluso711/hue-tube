@@ -119,6 +119,40 @@ button:focus {
 .main-header {
   position: relative;
   z-index: 2;
+  display: flex;
+}
+
+.share-trigger {
+  position: absolute;
+  top: var(--padding);
+  right: var(--padding);
+  z-index: 100;
+  cursor: pointer;
+}
+
+.sharing {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: rgba(0,0,0,.2);
+  z-index: 3;
+  transform: translateY(-100%);
+  transition: all 0.2s ease;
+}
+
+.sharing.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sharing iframe {
+  width: 100px;
 }
 
 .controls {

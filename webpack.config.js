@@ -1,38 +1,50 @@
+const path = require('path');
 const webpack = require('webpack');
-const nodeEnv = process.env.NODE_ENV || 'production';
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-module.exports = {
-  devtool: 'source-map',
+const javascript = {
+  test: /\.(js)$/, // see how we match anything that ends in `.js`? Cool
+  use: [{
+    loader: 'babel-loader',
+    options: { presets: ['es2015'] } // this is one way of passing options
+  }],
+};
+
+const postcss = {
+  loader: 'postcss-loader',
+  options: {
+    plugins() { return [autoprefixer({ browsers: 'last 3 versions' })]; }
+  }
+};
+
+const styles = {
+  test: /\.(scss)$/,
+  use: ExtractTextPlugin.extract(['css-loader?sourceMap', postcss, 'sass-loader?sourceMap'])
+};
+
+const uglify = new webpack.optimize.UglifyJsPlugin({ // eslint-disable-line
+  compress: { warnings: false }
+});
+
+const config = {
   entry: {
-    filename: './js/index.js'
+    App: './js/index.js'
   },
+  devtool: 'source-map',
   output: {
-    filename: './build/bundle.js'
+    path: path.resolve(__dirname, 'build'),
+    filename: '[name].bundle.js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            ["es2015", { "modules": false }]
-          ]
-        }
-      }
-    ]
+    rules: [javascript, styles]
   },
+  // plugins: [uglify]
   plugins: [
-    // uglify js
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      output: { comments: false },
-      sourceMap: true
-    }),
-    // env plugin
-    new webpack.DefinePlugin({
-      'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv)}
-    })
+    new ExtractTextPlugin('style.css'),
   ]
-}
+};
+
+process.noDeprecation = true;
+
+module.exports = config;

@@ -1,3 +1,5 @@
+import '../scss/styles.scss';
+
 const inputSlider = document.querySelector('.hue-slider');
 const hueTube = document.querySelector('.hue-tube');
 const images = document.querySelectorAll('.hue-image');

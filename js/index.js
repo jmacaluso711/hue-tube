@@ -7,6 +7,8 @@ const hueOverlay = document.querySelector('.hue');
 const playBtn = document.querySelector('.play');
 const playIcon = playBtn.querySelector('img');
 const body = document.querySelector('body');
+const shareTrigger = document.querySelector('.share-trigger');
+const sharing = document.querySelector('.sharing');
 
 
 /*
@@ -14,9 +16,15 @@ const body = document.querySelector('body');
 */
 
 document.addEventListener("DOMContentLoaded", function() {
+  
   setTimeout(() => {
     body.classList.remove('loading');
-  }, 600)
+  }, 600);
+  
+  shareTrigger.addEventListener('click', function() {
+    sharing.classList.toggle('open');
+  });
+
 });
 
 /*

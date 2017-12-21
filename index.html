@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Hue Tube</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:url"           content="http://huetube.it/index.html" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Hue Tube" />
+  <meta property="og:description"   content="Hue. Hugh. Hugh it yourself." />
+  <meta property="og:image"         content="http://huetube.it/img/hughs/hugh_01.jpg" />
+
 	<link rel="stylesheet" href="build/style.css">
+
   <style>
 
     :root {
@@ -21,6 +29,15 @@
   </style>
 </head>
 <body class="loading">
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=7165849946';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
   <div class="hue-tube">
 
@@ -74,6 +91,22 @@
 
   </div>
 
+  <div class="share-trigger">
+    <img src="img/share.svg" alt="">
+  </div>
+
+  <div class="sharing">
+    <div class="sharing__buttons">
+      <iframe src="https://platform.twitter.com/widgets/tweet_button.html?size=l&%2Fweb%2Ftweet-button&related=twitterapi%2Ctwitter&text=hue%20hugh%20hugh%20it%20yourself"
+        width="140" height="28" title="Twitter Tweet Button" style="border: 0; overflow: hidden;">
+      </iframe>
+      <div class="fb-share-button" data-href="http://huetube.it/index.html" data-layout="button" data-size="large" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fhuetube.it%2F&amp;src=sdkpreparse">Share</a>
+      </div>
+    </div>
+  </div>
+
 	<script src="build/App.bundle.js"></script>
+
 </body>
 </html>

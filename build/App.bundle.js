@@ -88,15 +88,22 @@ var hueOverlay = document.querySelector('.hue');
 var playBtn = document.querySelector('.play');
 var playIcon = playBtn.querySelector('img');
 var body = document.querySelector('body');
+var shareTrigger = document.querySelector('.share-trigger');
+var sharing = document.querySelector('.sharing');
 
 /*
   Doc Ready
 */
 
 document.addEventListener("DOMContentLoaded", function () {
+
   setTimeout(function () {
     body.classList.remove('loading');
   }, 600);
+
+  shareTrigger.addEventListener('click', function () {
+    sharing.classList.toggle('open');
+  });
 });
 
 /*

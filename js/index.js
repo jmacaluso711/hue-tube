@@ -1,3 +1,5 @@
+import '../scss/styles.scss';
+
 const inputSlider = document.querySelector('.hue-slider');
 const hueTube = document.querySelector('.hue-tube');
 const images = document.querySelectorAll('.hue-image');
@@ -7,7 +9,6 @@ const playIcon = playBtn.querySelector('img');
 const body = document.querySelector('body');
 
 
-console.log('hello');
 /*
   Doc Ready
 */

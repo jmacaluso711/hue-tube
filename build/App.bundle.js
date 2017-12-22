@@ -63,69 +63,30 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(0);
-
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.togglePlay = togglePlay;
+exports.hueItYourself = hueItYourself;
 var inputSlider = document.querySelector('.hue-slider');
-var hueTube = document.querySelector('.hue-tube');
-var images = document.querySelectorAll('.hue-image');
 var hueOverlay = document.querySelector('.hue');
 var playBtn = document.querySelector('.play');
 var playIcon = playBtn.querySelector('img');
-var body = document.querySelector('body');
-var shareTrigger = document.querySelector('.share-trigger');
-var sharing = document.querySelector('.sharing');
-
-/*
-  Doc Ready
-*/
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  setTimeout(function () {
-    body.classList.remove('loading');
-  }, 600);
-
-  shareTrigger.addEventListener('click', function () {
-    sharing.classList.toggle('open');
-  });
-});
-
-/*
-  Hue Image Slider
-*/
-
-var currentHugh = 0;
-var hughSlider = setInterval(nextHugh, 2000);
-
-function nextHugh() {
-  images[currentHugh].className = 'hue-image';
-  currentHugh = (currentHugh + 1) % images.length;
-  images[currentHugh].className = 'hue-image hue-image--visible';
-}
-
-/*
-  Auto Hue
-*/
 
 var autoHueIt = void 0;
 var increment = 1;
 var playing = false;
+var hue = 0;
 
 function autoHue() {
   if (hue === 360) {
@@ -156,14 +117,6 @@ function updateButton() {
   playIcon.setAttribute('src', 'img/' + icon);
 }
 
-playBtn.addEventListener('click', togglePlay);
-
-/*
-  Hue it yourself
-*/
-
-var hue = 0;
-
 function hueItYourself(e) {
 
   playing = false;
@@ -179,19 +132,84 @@ function hueItYourself(e) {
   document.documentElement.style.setProperty('--hue-slider', 'hsl(' + hue + ', 70%, 50%)');
 }
 
-hueOverlay.addEventListener('mousemove', hueItYourself);
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/*
-  Hue Scrobbler
-*/
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var hueOverlay = document.querySelector('.hue');
 
 function handleScrobbler() {
   hueOverlay.style.backgroundColor = 'hsl(' + this.value + ', 70%, 50%)';
   document.documentElement.style.setProperty('--' + this.name, 'hsl(' + this.value + ', 70%, 50%)');
 }
 
-inputSlider.addEventListener('change', handleScrobbler);
-inputSlider.addEventListener('mousemove', handleScrobbler);
+exports.default = handleScrobbler;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var images = document.querySelectorAll('.hue-image');
+var currentHugh = 0;
+
+function nextHugh() {
+  images[currentHugh].className = 'hue-image';
+  currentHugh = (currentHugh + 1) % images.length;
+  images[currentHugh].className = 'hue-image hue-image--visible';
+}
+
+exports.default = nextHugh;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(3);
+
+var _slider = __webpack_require__(2);
+
+var _slider2 = _interopRequireDefault(_slider);
+
+var _scrobbler = __webpack_require__(1);
+
+var _scrobbler2 = _interopRequireDefault(_scrobbler);
+
+var _hue = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var inputSlider = document.querySelector('.hue-slider');
+var hueOverlay = document.querySelector('.hue');
+var playBtn = document.querySelector('.play');
+var playIcon = playBtn.querySelector('img');
+
+var hughSlider = setInterval(_slider2.default, 2000);
+
+playBtn.addEventListener('click', _hue.togglePlay);
+hueOverlay.addEventListener('mousemove', _hue.hueItYourself);
+inputSlider.addEventListener('change', _scrobbler2.default);
+inputSlider.addEventListener('mousemove', _scrobbler2.default);
 
 /***/ })
 /******/ ]);

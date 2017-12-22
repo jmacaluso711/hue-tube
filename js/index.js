@@ -1,3 +1,5 @@
+import '../scss/styles.scss';
+
 const inputSlider = document.querySelector('.hue-slider');
 const hueOverlay = document.querySelector('.hue');
 const playBtn = document.querySelector('.play');

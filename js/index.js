@@ -3,6 +3,7 @@ const hueOverlay = document.querySelector('.hue');
 const playBtn = document.querySelector('.play');
 const playIcon = playBtn.querySelector('img');
 
+import '../scss/styles.scss';
 import nextHugh from './modules/slider';
 import handleScrobbler from './modules/scrobbler';
 import {togglePlay, hueItYourself} from './modules/hue';
